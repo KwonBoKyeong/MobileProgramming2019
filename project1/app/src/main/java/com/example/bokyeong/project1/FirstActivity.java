@@ -30,7 +30,7 @@ public class FirstActivity extends AppCompatActivity {
         btn_login = (Button)findViewById(R.id.btn_login); //로그인 버튼
         btn_signup = (Button)findViewById(R.id.btn_signup); //회원가입 버튼
 
-        //회원정보 파일을 읽은 후, 로그인과 비밀번호가 담긴 객체 생성
+        //회원정보 파일을 읽은 후, 아이디과 비밀번호가 담긴 객체 생성
         try{
             BufferedReader br = new BufferedReader(new FileReader(getFilesDir()+"userInfo.txt"));
 
