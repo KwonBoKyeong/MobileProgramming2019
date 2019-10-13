@@ -1,5 +1,6 @@
 package com.example.bokyeong.project1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -203,7 +204,8 @@ public class ThirdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
-                finish();
+                Intent intent = new Intent(getApplicationContext(), FirstActivity.class);
+                startActivity(intent);
             }
         });
     }
