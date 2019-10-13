@@ -40,16 +40,18 @@ public class FirstActivity extends AppCompatActivity {
             while ((line = br.readLine()) != null) {
                 String lines[] = line.split("\t");
                 UserInfo si = new UserInfo(lines[0],lines[1]);
+                Log.i("login 아이디 ", si.userID);
+
                 login.add(si);
             }
+
+
             br.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(),"회원정보가 맞지 않습니다.", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(),"다시 시도해주세요.", Toast.LENGTH_SHORT).show();
         }
 
         //로그인 시도하는 경우
@@ -75,8 +77,6 @@ public class FirstActivity extends AppCompatActivity {
                     if (id.equals(u.userID)) {
                         if(password.equals(u.password)) {
                             check_id = true;
-                            Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_LONG).show();
-                            startActivity(intent);
                         }
                     }
                 }
@@ -84,6 +84,10 @@ public class FirstActivity extends AppCompatActivity {
                 //로그인에 실패한 경우
                 if(check_id == false) {
                     Toast.makeText(getApplicationContext(), "다시 시도해주세요.", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
                 }
 
             }
@@ -127,7 +131,7 @@ public class FirstActivity extends AppCompatActivity {
         }
 
         public String toString() {
-            return userID + "\t" + password ;
+            return userID + "\t" + password +"\t";
         }
 
     }

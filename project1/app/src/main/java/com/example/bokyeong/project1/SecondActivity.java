@@ -1,7 +1,6 @@
 package com.example.bokyeong.project1;
 
 import android.content.Intent;
-import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,21 +10,13 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity  {
@@ -159,8 +150,8 @@ public class SecondActivity extends AppCompatActivity  {
                         Log.i("에러 메세지", "error");
                     }
                         Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다.", Toast.LENGTH_LONG).show();
-
-                        finish();
+                        Intent intent = new Intent(getApplicationContext(), FirstActivity.class);
+                        startActivity(intent);
                 }
             }
         });
@@ -223,7 +214,7 @@ public class SecondActivity extends AppCompatActivity  {
         }
 
         public String toString() {
-            return userID + "\t" + password + "\t" + name + "\t" + phoneNumber + "\t" + address;
+            return userID + "\t" + password + "\t" + name + "\t" + phoneNumber + "\t" + address + "\t";
         }
     }
 }
